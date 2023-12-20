@@ -1,3 +1,4 @@
+const MoviesList = () => {
 const movies = [
   {
     title: "Avatar",
@@ -177,4 +178,91 @@ const movies = [
   },
 ];
 
-export default movies;
+
+const h1Style = {
+  width: '33%',
+  color:'#000000',
+  fontFamily: 'Kanit',
+  fontSize: '2.5rem',
+  lineHeight: '2rem',
+}
+
+const divStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  width: '33%',
+  padding: '1rem',
+  height: '100%',
+  marginTop: '4.313',
+  borderRadius: '0.625rem',
+  border: '0 solid',
+  background: '#FFFFFF',
+  color: '#000000',
+  boxShadow: '0 0.25rem 2.5rem 0 #917C7C40',
+  marginBottom: '2.5rem',
+}
+
+
+const imgStyle ={
+  width: '24%',
+  height: '6.3rem',
+  borderRadius: '0.625rem',
+  marginTop: '1.375rem',
+  marginLeft: '-1rem',
+}
+
+const divUl = {
+  marginLeft: '-1rem',
+}
+
+const ulStyle ={
+  fontFamily: 'Kanit',
+  fontSize: '120%',
+  lineHeight: '1.9rem',
+  letterSpacing: '0em',
+  
+}
+
+const btn = {
+  fontFamily: 'Kanit',
+  borderRadius: '0.5rem',
+  border: '0 solid',
+  padding: '0.25rem 0.5rem',
+  background: '#dba797',
+  color: '#000000',
+  marginLeft: '0.375rem',
+
+}
+
+  return (
+    <>
+    <h1 style={h1Style}>Movie List Section</h1>
+    {movies.map((movie, index) => (
+      <div key={index}>
+        <div style={divStyle}>
+          <img style={imgStyle} src={movie.image} alt={movie.title} />
+          <div style={divUl}>
+            <ul  style={ulStyle}>
+              <li style={{listStyle:'none'}}>Title: {movie.title}</li>
+              <li style={{listStyle:'none'}}>Year: {movie.year}</li>
+              <li style={{listStyle:'none'}}>Runtime: {movie.runtime}</li>
+              <li style={{listStyle:'none'}}>Director: {movie.director}</li>
+              <li style={{ listStyle:'none'}}>Genres:
+                {movie.genres.map((genre, index) => (
+                  <button key={index} style={btn}>
+                    {genre}
+                  </button>
+                ))}
+              </li>
+              <li style={{listStyle:'none'}}>IMDB Rating: {movie.imdbRating}</li>
+              <li style={{listStyle:'none'}}>IMDB Votes: {movie.imdbVotes}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    ))}
+  </>
+);
+
+}
+export default MoviesList;
